@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>TCP Protocol Quiz | Exam Gate</title>
+    <title>Quiz | Exam Gate</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@600;700&display=swap');
 
@@ -77,8 +78,15 @@
                 opacity: 0;
                 transform: translate(var(--sx, -100px), var(--sy, 0px));
             }
-            8% { opacity: 0.6; }
-            92% { opacity: 0.6; }
+
+            8% {
+                opacity: 0.6;
+            }
+
+            92% {
+                opacity: 0.6;
+            }
+
             100% {
                 opacity: 0;
                 transform: translate(var(--ex, 120vw), var(--ey, 0px));
@@ -112,9 +120,17 @@
             border-radius: 50%;
         }
 
-        .d1 { background: #ff5f57; }
-        .d2 { background: #febc2e; }
-        .d3 { background: #28c840; }
+        .d1 {
+            background: #ff5f57;
+        }
+
+        .d2 {
+            background: #febc2e;
+        }
+
+        .d3 {
+            background: #28c840;
+        }
 
         .tbar-title {
             font-size: 11px;
@@ -196,11 +212,27 @@
         }
 
         @keyframes shk {
-            0%, 100% { transform: translateX(0) }
-            20% { transform: translateX(-8px) }
-            40% { transform: translateX(8px) }
-            60% { transform: translateX(-5px) }
-            80% { transform: translateX(5px) }
+
+            0%,
+            100% {
+                transform: translateX(0)
+            }
+
+            20% {
+                transform: translateX(-8px)
+            }
+
+            40% {
+                transform: translateX(8px)
+            }
+
+            60% {
+                transform: translateX(-5px)
+            }
+
+            80% {
+                transform: translateX(5px)
+            }
         }
 
         #sbtn {
@@ -238,8 +270,13 @@
             line-height: 1.6;
         }
 
-        .merr { color: var(--error); }
-        .mok { color: var(--primary); }
+        .merr {
+            color: var(--error);
+        }
+
+        .mok {
+            color: var(--primary);
+        }
 
         .hint {
             font-size: 11px;
@@ -266,7 +303,9 @@
         }
 
         @keyframes bl {
-            50% { opacity: 0 }
+            50% {
+                opacity: 0
+            }
         }
 
         #lscreen {
@@ -284,6 +323,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -349,7 +389,7 @@
             background: rgba(51, 255, 102, 0.03);
             transition: border-color 0.3s;
         }
-        
+
         .card:hover {
             border-color: var(--primary);
         }
@@ -449,6 +489,7 @@
                 opacity: 1;
                 transform: translate(0, 0) rotate(0);
             }
+
             100% {
                 opacity: 0;
                 transform: translate(var(--cx, 30px), var(--cy, -100px)) rotate(360deg);
@@ -460,15 +501,19 @@
             #root {
                 padding: 15px;
             }
+
             .screen {
                 padding: 18px;
             }
+
             .qtxt {
                 font-size: 16px;
             }
+
             #ans {
                 font-size: 18px;
             }
+
             .hsstep {
                 padding: 6px 10px;
                 font-size: 11px;
@@ -476,6 +521,7 @@
         }
     </style>
 </head>
+
 <body>
     <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
         TCP protocol quiz gate — answer correctly to unlock exam good luck message
@@ -503,13 +549,15 @@
             <div class="qbox">
                 <div class="qpre">root@examgate:~$ cat question.txt</div>
                 <div class="qtxt" style="margin-top:6px;">
-                    Which transport layer protocol provides <span>reliable data transfer</span> and uses a <span>3-way handshake</span> to establish a connection?
+                    Which transport layer protocol provides <span>reliable data transfer</span> and uses a <span>3-way
+                        handshake</span> to establish a connection?
                 </div>
             </div>
 
             <div class="irow">
                 <span class="psym">&gt;_</span>
-                <input id="ans" type="text" placeholder="YOUR ANSWER" maxlength="10" autocomplete="off" spellcheck="false" inputmode="text" />
+                <input id="ans" type="text" placeholder="YOUR ANSWER" maxlength="10" autocomplete="off"
+                    spellcheck="false" inputmode="text" />
             </div>
 
             <button id="sbtn" onclick="check()">SUBMIT ANSWER</button>
@@ -586,12 +634,12 @@
             var v = inp.value.trim().toUpperCase();
             if (!v) { showMsg('> NO INPUT DETECTED.', 'err'); return; }
             if (v === 'TCP') { goLuck(); return; }
-            
+
             inp.classList.remove('err');
             void inp.offsetWidth;
             inp.classList.add('err');
             setTimeout(function () { inp.classList.remove('err'); }, 500);
-            
+
             var hints = [
                 '> INCORRECT. Think: reliable, connection-oriented, Layer 4.',
                 '> WRONG. Uses SYN → SYN-ACK → ACK to connect. 3 letters.',
@@ -610,11 +658,11 @@
             var qs = document.getElementById('qscreen');
             var ls = document.getElementById('lscreen');
             var root = document.getElementById('root');
-            
+
             qs.style.transition = 'opacity 0.45s, transform 0.45s';
             qs.style.opacity = '0';
             qs.style.transform = 'translateY(-20px)';
-            
+
             setTimeout(function () {
                 qs.style.display = 'none';
                 ls.classList.add('show');
@@ -626,7 +674,7 @@
             var colors = ['#33ff66', '#5adf80', '#b8ffc8', '#00ff99', '#66ffaa'];
             var cx = container.clientWidth / 2;
             var cy = container.clientHeight / 2;
-            
+
             for (var i = 0; i < 24; i++) {
                 var d = document.createElement('div');
                 d.className = 'cdot';
@@ -645,4 +693,5 @@
         }
     </script>
 </body>
-</html>
+
+</html>
